@@ -7,9 +7,23 @@
 </head>
 <body>
     {{if .}}
+    {{if .URL }}
+    <p>{{.URL.Path}}</p>
+    {{end}}
+    {{if .Header}}
+    {{range $key, $value := .Header}}
+    <p>{{$key}}</p><ul></ul>
+        {{ range $value}}
+        
+            <li> {{.}}</li>
+        
+        {{end}}</ul>
+        {{end}}
+    {{end}}
     <main>
         <p> Vaiables and Values</p>
-        {{ range $key , $value := .}}
+        {{if .Submissions }}
+        {{ range $key , $value := .Submissions}}
             <h1>{{ $key }}</h1>
             <ul>
                 {{ range $value }}
@@ -19,6 +33,7 @@
                 {{ end }}
             </ul>
         {{ end }}
+        {{end}}
     </main>
     {{end}}
 
