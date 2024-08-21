@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{if .}}
+    <main>
+        <p> Vaiables and Values</p>
+        {{ range $key , $value := .}}
+            <h1>{{ $key }}</h1>
+            <ul>
+                {{ range $value }}
+                <li>
+                    <h3>{{ . }}</h3>
+                </li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </main>
+    {{end}}
+
+    <form method="POST" action="/">
+        <input type="text" name="fname" placeholder="Name">
+        <input type="submit" name="submit-btn" placeholder="Name" value="submit-btn">
+    </form>
+</body>
+</html>
